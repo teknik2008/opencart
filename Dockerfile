@@ -18,7 +18,7 @@ RUN pecl install xdebug-2.6.0alpha1
 
 
 # Copy php.ini into image
-RUN chown -R www-data:www-data /var/www/html
+RUN chown  -R www-data:www-data /var/
 RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
 

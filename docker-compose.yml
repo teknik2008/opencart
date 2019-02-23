@@ -20,7 +20,6 @@ services:
       - '3080:80'
     volumes:
       - ./upload:/var/www/html
-      - ./storage:/var/storage
     depends_on:
       - db
     restart: always
