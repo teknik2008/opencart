@@ -1,0 +1,29 @@
+version: '3.2'
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - my-datavolume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root_pass' # TODO: Change this
+      MYSQL_USER: 'developer'
+      MYSQL_PASS: 'password'
+      MYSQL_DATABASE: 'store-db'
+    ports:
+      - '8099:3306'
+  web:
+    user: ${CURRENT_UID}
+    build: .
+    ports:
+      - '3080:80'
+    volumes:
+      - ./upload:/var/www/html
+      - ./storage:/var/storage
+    depends_on:
+      - db
+    restart: always
+    
+volumes:
+  my-datavolume:
