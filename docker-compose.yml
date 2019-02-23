@@ -9,7 +9,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'root_pass' # TODO: Change this
       MYSQL_USER: 'developer'
-      MYSQL_PASS: 'password'
+      MYSQL_PASSWORD: 'password'
       MYSQL_DATABASE: 'store-db'
     ports:
       - '8099:3306'
